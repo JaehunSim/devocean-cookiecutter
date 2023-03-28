@@ -1,0 +1,36 @@
+{% extends "web/base.html" %}
+{% load static %}
+<!-- -->
+{% block main %}
+{% comment %} {% endcomment %}
+
+<body class="d-flex flex-column min-vh-100">
+  <div class="container my-3">
+    <a href="https://devocean.sk.com" target="_blank"><img src="{% static 'assets/logo.png' %}" class="rounded mx-auto d-block" alt="Next LeveL Logo"></a>
+  </div>
+  <div class="bg-light px-5 mb-3">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-10">
+        <div class="text-center my-3">
+          <h3>Django 템플릿 생성 페이지</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-4">
+        <form id="django-template" method="POST">
+          {% csrf_token %}
+          <table>
+            {{ form.as_table }}
+          </table>
+          <div class="py-3 d-inline-block">
+            <button type="submit" value="OK" class="btn btn-primary" name="create">생성하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
